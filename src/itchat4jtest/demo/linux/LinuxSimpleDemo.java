@@ -11,19 +11,20 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
 import cn.zhouyafeng.itchat4j.Wechat;
+import cn.zhouyafeng.itchat4j.beans.BaseMsg;
 import cn.zhouyafeng.itchat4j.face.IMsgHandlerFace;
 import cn.zhouyafeng.itchat4j.utils.MyHttpClient;
 
 public class LinuxSimpleDemo implements IMsgHandlerFace {
 
 	MyHttpClient myHttpClient = MyHttpClient.getInstance();
-	String apiKey = "597b34bea4ec4c85a775c469c84b6817"; // ÕâÀïÊÇÎÒÉêÇëµÄÍ¼Áé»úÆ÷ÈËAPI½Ó¿Ú£¬Ã¿ÌìÖ»ÄÜ5000´Îµ÷ÓÃ£¬½¨Òé×Ô¼ºÈ¥ÉêÇëÒ»¸ö£¬Ãâ·ÑµÄ:)
+	String apiKey = "597b34bea4ec4c85a775c469c84b6817"; // è¿™é‡Œæ˜¯æˆ‘ç”³è¯·çš„å›¾çµæœºå™¨äººAPIæ¥å£ï¼Œæ¯å¤©åªèƒ½5000æ¬¡è°ƒç”¨ï¼Œå»ºè®®è‡ªå·±å»ç”³è¯·ä¸€ä¸ªï¼Œå…è´¹çš„:)
 	Logger logger = Logger.getLogger("TulingRobot");
 
 	@Override
-	public String textMsgHandle(JSONObject msg) {
+	public String textMsgHandle(BaseMsg msg) {
 		String result = "";
-		String text = msg.getString("Text");
+		String text = msg.getText();
 		String url = "http://www.tuling123.com/openapi/api";
 		Map<String, String> paramMap = new HashMap<String, String>();
 		paramMap.put("key", apiKey);
@@ -37,7 +38,7 @@ public class LinuxSimpleDemo implements IMsgHandlerFace {
 			if (obj.getString("code").equals("100000")) {
 				result = obj.getString("text");
 			} else {
-				result = "´¦ÀíÓĞÎó";
+				result = "å¤„ç†æœ‰è¯¯";
 			}
 		} catch (Exception e) {
 			logger.info(e.getMessage());
@@ -46,21 +47,21 @@ public class LinuxSimpleDemo implements IMsgHandlerFace {
 	}
 
 	@Override
-	public String picMsgHandle(JSONObject msg) {
+	public String picMsgHandle(BaseMsg msg) {
 
-		return "ÊÕµ½Í¼Æ¬";
+		return "æ”¶åˆ°å›¾ç‰‡";
 	}
 
 	@Override
-	public String voiceMsgHandle(JSONObject msg) {
+	public String voiceMsgHandle(BaseMsg msg) {
 
-		return "ÊÕµ½ÓïÒô";
+		return "æ”¶åˆ°è¯­éŸ³";
 	}
 
 	@Override
-	public String viedoMsgHandle(JSONObject msg) {
+	public String viedoMsgHandle(BaseMsg msg) {
 
-		return "ÊÕµ½ÊÓÆµ";
+		return "æ”¶åˆ°è§†é¢‘";
 	}
 
 	public static void main(String[] args) {
@@ -70,7 +71,25 @@ public class LinuxSimpleDemo implements IMsgHandlerFace {
 	}
 
 	@Override
-	public String nameCardMsgHandle(JSONObject arg0) {
-		return "ÊÕµ½ÃûÆ¬ÏûÏ¢";
+	public String nameCardMsgHandle(BaseMsg arg0) {
+		return "æ”¶åˆ°åç‰‡æ¶ˆæ¯";
+	}
+
+	@Override
+	public void sysMsgHandle(BaseMsg msg) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public String verifyAddFriendMsgHandle(BaseMsg msg) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String mediaMsgHandle(BaseMsg msg) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -6,16 +6,16 @@ import cn.zhouyafeng.itchat4j.face.IMsgHandlerFace;
 /**
  * 
  * @author https://github.com/yaphone
- * @date ´´½¨Ê±¼ä£º2017Äê4ÔÂ28ÈÕ ÉÏÎç12:44:10
+ * @date åˆ›å»ºæ—¶é—´ï¼š2017å¹´4æœˆ28æ—¥ ä¸Šåˆ12:44:10
  * @version 1.0
  *
  */
 public class Mytest {
 	public static void main(String[] args) {
-		String qrPath = "D://itchat4j//login"; // ±£´æµÇÂ½¶şÎ¬ÂëÍ¼Æ¬µÄÂ·¾¶
-		IMsgHandlerFace msgHandler = new SimpleDemo(); // ÊµÏÖIMsgHandlerFace½Ó¿ÚµÄÀà
-		Wechat wechat = new Wechat(msgHandler, qrPath); // ¡¾×¢Èë¡¿
-		wechat.start(); // Æô¶¯·şÎñ£¬»áÔÚqrPathÏÂÉú³ÉÒ»ÕÅ¶şÎ¬ÂëÍ¼Æ¬£¬É¨Ãè¼´¿ÉµÇÂ½£¬×¢Òâ£¬¶şÎ¬ÂëÍ¼Æ¬Èç¹û³¬¹ıÒ»¶¨Ê±¼äÎ´É¨Ãè»á¹ıÆÚ£¬¹ıÆÚÊ±»á×Ô¶¯¸üĞÂ£¬ËùÒÔÄã¿ÉÄÜĞèÒªÖØĞÂ´ò¿ªÍ¼Æ¬
+		String qrPath = "D://itchat4j//login"; // ä¿å­˜ç™»é™†äºŒç»´ç å›¾ç‰‡çš„è·¯å¾„
+		IMsgHandlerFace msgHandler = new SimpleDemo(); // å®ç°IMsgHandlerFaceæ¥å£çš„ç±»
+		Wechat wechat = new Wechat(msgHandler, qrPath); // ã€æ³¨å…¥ã€‘
+		wechat.start(); // å¯åŠ¨æœåŠ¡ï¼Œä¼šåœ¨qrPathä¸‹ç”Ÿæˆä¸€å¼ äºŒç»´ç å›¾ç‰‡ï¼Œæ‰«æå³å¯ç™»é™†ï¼Œæ³¨æ„ï¼ŒäºŒç»´ç å›¾ç‰‡å¦‚æœè¶…è¿‡ä¸€å®šæ—¶é—´æœªæ‰«æä¼šè¿‡æœŸï¼Œè¿‡æœŸæ—¶ä¼šè‡ªåŠ¨æ›´æ–°ï¼Œæ‰€ä»¥ä½ å¯èƒ½éœ€è¦é‡æ–°æ‰“å¼€å›¾ç‰‡
 	}
 
 }

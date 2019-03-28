@@ -4,55 +4,72 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.alibaba.fastjson.JSONObject;
-
+import cn.zhouyafeng.itchat4j.beans.BaseMsg;
 import cn.zhouyafeng.itchat4j.face.IMsgHandlerFace;
 import cn.zhouyafeng.itchat4j.utils.enums.MsgTypeEnum;
 import cn.zhouyafeng.itchat4j.utils.tools.DownloadTools;
 
 /**
- * ¼òµ¥Ê¾Àı³ÌĞò£¬ÊÕµ½ÎÄ±¾ĞÅÏ¢×Ô¶¯»Ø¸´Ô­ĞÅÏ¢£¬ÊÕµ½Í¼Æ¬¡¢ÓïÒô¡¢Ğ¡ÊÓÆµºó¸ù¾İÂ·¾¶×Ô¶¯±£´æ
+ * ç®€å•ç¤ºä¾‹ç¨‹åºï¼Œæ”¶åˆ°æ–‡æœ¬ä¿¡æ¯è‡ªåŠ¨å›å¤åŸä¿¡æ¯ï¼Œæ”¶åˆ°å›¾ç‰‡ã€è¯­éŸ³ã€å°è§†é¢‘åæ ¹æ®è·¯å¾„è‡ªåŠ¨ä¿å­˜
  * 
  * @author https://github.com/yaphone
- * @date ´´½¨Ê±¼ä£º2017Äê4ÔÂ28ÈÕ ÏÂÎç10:50:36
+ * @date åˆ›å»ºæ—¶é—´ï¼š2017å¹´4æœˆ28æ—¥ ä¸‹åˆ10:50:36
  * @version 1.0
  *
  */
 public class SimpleDemo implements IMsgHandlerFace {
 
 	@Override
-	public String textMsgHandle(JSONObject msg) {
-		String text = msg.getString("Text");
+	public String textMsgHandle(BaseMsg msg) {
+		String text = msg.getText();
 		return text;
 	}
 
 	@Override
-	public String picMsgHandle(JSONObject msg) {
-		String fileName = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss").format(new Date()) + ".jpg"; // ÕâÀïÊ¹ÓÃÊÕµ½Í¼Æ¬µÄÊ±¼ä×÷ÎªÎÄ¼şÃû
-		String picPath = "D://itchat4j/pic" + File.separator + fileName; // ±£´æÍ¼Æ¬µÄÂ·¾¶
-		DownloadTools.getDownloadFn(msg, MsgTypeEnum.PIC.getType(), picPath); // µ÷ÓÃ´Ë·½·¨À´±£´æÍ¼Æ¬
-		return "Í¼Æ¬±£´æ³É¹¦";
+	public String picMsgHandle(BaseMsg msg) {
+		String fileName = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss").format(new Date()) + ".jpg"; // è¿™é‡Œä½¿ç”¨æ”¶åˆ°å›¾ç‰‡çš„æ—¶é—´ä½œä¸ºæ–‡ä»¶å
+		String picPath = "D://itchat4j/pic" + File.separator + fileName; // ä¿å­˜å›¾ç‰‡çš„è·¯å¾„
+		DownloadTools.getDownloadFn(msg, MsgTypeEnum.PIC.getType(), picPath); // è°ƒç”¨æ­¤æ–¹æ³•æ¥ä¿å­˜å›¾ç‰‡
+		return "å›¾ç‰‡ä¿å­˜æˆåŠŸ";
 	}
 
 	@Override
-	public String voiceMsgHandle(JSONObject msg) {
-		String fileName = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss").format(new Date()) + ".mp3"; // ÕâÀïÊ¹ÓÃÊÕµ½ÓïÒôµÄÊ±¼ä×÷ÎªÎÄ¼şÃû
-		String voicePath = "D://itchat4j/voice" + File.separator + fileName; // ±£´æÓïÒôµÄÂ·¾¶
-		DownloadTools.getDownloadFn(msg, MsgTypeEnum.VOICE.getType(), voicePath); // µ÷ÓÃ´Ë·½·¨À´±£´æÓïÒô
-		return "ÉùÒô±£´æ³É¹¦";
+	public String voiceMsgHandle(BaseMsg msg) {
+		String fileName = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss").format(new Date()) + ".mp3"; // è¿™é‡Œä½¿ç”¨æ”¶åˆ°è¯­éŸ³çš„æ—¶é—´ä½œä¸ºæ–‡ä»¶å
+		String voicePath = "D://itchat4j/voice" + File.separator + fileName; // ä¿å­˜è¯­éŸ³çš„è·¯å¾„
+		DownloadTools.getDownloadFn(msg, MsgTypeEnum.VOICE.getType(), voicePath); // è°ƒç”¨æ­¤æ–¹æ³•æ¥ä¿å­˜è¯­éŸ³
+		return "å£°éŸ³ä¿å­˜æˆåŠŸ";
 	}
 
 	@Override
-	public String viedoMsgHandle(JSONObject msg) {
-		String fileName = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss").format(new Date()) + ".mp4"; // ÕâÀïÊ¹ÓÃÊÕµ½Ğ¡ÊÓÆµµÄÊ±¼ä×÷ÎªÎÄ¼şÃû
-		String viedoPath = "D://itchat4j/viedo" + File.separator + fileName;// ±£´æĞ¡ÊÓÆµµÄÂ·¾¶
-		DownloadTools.getDownloadFn(msg, MsgTypeEnum.VIEDO.getType(), viedoPath);// µ÷ÓÃ´Ë·½·¨À´±£´æĞ¡ÊÓÆµ
-		return "ÊÓÆµ±£´æ³É¹¦";
+	public String viedoMsgHandle(BaseMsg msg) {
+		String fileName = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss").format(new Date()) + ".mp4"; // è¿™é‡Œä½¿ç”¨æ”¶åˆ°å°è§†é¢‘çš„æ—¶é—´ä½œä¸ºæ–‡ä»¶å
+		String viedoPath = "D://itchat4j/viedo" + File.separator + fileName;// ä¿å­˜å°è§†é¢‘çš„è·¯å¾„
+		DownloadTools.getDownloadFn(msg, MsgTypeEnum.VIEDO.getType(), viedoPath);// è°ƒç”¨æ­¤æ–¹æ³•æ¥ä¿å­˜å°è§†é¢‘
+		return "è§†é¢‘ä¿å­˜æˆåŠŸ";
 	}
 
 	@Override
-	public String nameCardMsgHandle(JSONObject arg0) {
-		return "ÊÕµ½ÃûÆ¬ÏûÏ¢";
+	public String nameCardMsgHandle(BaseMsg arg0) {
+		return "æ”¶åˆ°åç‰‡æ¶ˆæ¯";
+	}
+
+	@Override
+	public void sysMsgHandle(BaseMsg msg) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public String verifyAddFriendMsgHandle(BaseMsg msg) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String mediaMsgHandle(BaseMsg msg) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
