@@ -10,10 +10,10 @@ import org.apache.http.util.EntityUtils;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
-import cn.zhouyafeng.itchat4j.Wechat;
-import cn.zhouyafeng.itchat4j.beans.BaseMsg;
-import cn.zhouyafeng.itchat4j.face.IMsgHandlerFace;
-import cn.zhouyafeng.itchat4j.utils.MyHttpClient;
+import cn.open.itchat4j.Wechat;
+import cn.open.itchat4j.beans.BaseMsg;
+import cn.open.itchat4j.face.IMsgHandlerFace;
+import cn.open.itchat4j.utils.MyHttpClient;
 
 public class LinuxSimpleDemo implements IMsgHandlerFace {
 
