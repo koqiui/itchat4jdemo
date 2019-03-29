@@ -5,8 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import cn.open.itchat4j.beans.BaseMsg;
+import cn.open.itchat4j.core.MsgHandler;
 import cn.open.itchat4j.enums.MsgTypeCodeEnum;
-import cn.open.itchat4j.face.IMsgHandlerFace;
 import cn.open.itchat4j.tools.DownloadTools;
 
 /**
@@ -17,7 +17,7 @@ import cn.open.itchat4j.tools.DownloadTools;
  * @version 1.0
  *
  */
-public class SimpleDemo implements IMsgHandlerFace {
+public class SimpleDemo implements MsgHandler {
 
 	@Override
 	public String textMsgHandle(BaseMsg msg) {

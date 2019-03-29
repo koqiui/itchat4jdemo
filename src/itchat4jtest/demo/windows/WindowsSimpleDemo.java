@@ -6,11 +6,11 @@ import java.util.Date;
 
 import cn.open.itchat4j.Wechat;
 import cn.open.itchat4j.beans.BaseMsg;
+import cn.open.itchat4j.core.MsgHandler;
 import cn.open.itchat4j.enums.MsgTypeCodeEnum;
-import cn.open.itchat4j.face.IMsgHandlerFace;
 import cn.open.itchat4j.tools.DownloadTools;
 
-public class WindowsSimpleDemo implements IMsgHandlerFace {
+public class WindowsSimpleDemo implements MsgHandler {
 
 	@Override
 	public String textMsgHandle(BaseMsg msg) {
@@ -44,7 +44,7 @@ public class WindowsSimpleDemo implements IMsgHandlerFace {
 	}
 
 	public static void main(String[] args) {
-		IMsgHandlerFace msgHandler = new WindowsSimpleDemo();
+		MsgHandler msgHandler = new WindowsSimpleDemo();
 		String qrPath = "D://itchat4j/login";
 		// Wechat wechat = new Wechat(msgHandler,
 		// "/home/itchat4j/demo/itchat4j/login");

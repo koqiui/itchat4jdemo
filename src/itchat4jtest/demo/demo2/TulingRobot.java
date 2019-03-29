@@ -12,7 +12,8 @@ import com.alibaba.fastjson.JSONObject;
 
 import cn.open.itchat4j.Wechat;
 import cn.open.itchat4j.beans.BaseMsg;
-import cn.open.itchat4j.face.IMsgHandlerFace;
+import cn.open.itchat4j.core.Core;
+import cn.open.itchat4j.core.MsgHandler;
 import cn.open.itchat4j.utils.MyHttpClient;
 
 /**
@@ -23,9 +24,9 @@ import cn.open.itchat4j.utils.MyHttpClient;
  * @version 1.0
  *
  */
-public class TulingRobot implements IMsgHandlerFace {
+public class TulingRobot implements MsgHandler {
 
-	MyHttpClient myHttpClient = MyHttpClient.getInstance();
+	MyHttpClient myHttpClient = Core.getInstance().getMyHttpClient();
 	String apiKey = "597b34bea4ec4c85a775c469c84b6817"; // 这里是我申请的图灵机器人API接口，每天只能5000次调用，建议自己去申请一个，免费的:)
 	Logger logger = Logger.getLogger("TulingRobot");
 
@@ -73,7 +74,7 @@ public class TulingRobot implements IMsgHandlerFace {
 	}
 
 	public static void main(String[] args) {
-		IMsgHandlerFace msgHandler = new TulingRobot();
+		MsgHandler msgHandler = new TulingRobot();
 		Wechat wechat = new Wechat(msgHandler, "/home/itchat4j/demo/itchat4j/login");
 		wechat.start();
 	}
