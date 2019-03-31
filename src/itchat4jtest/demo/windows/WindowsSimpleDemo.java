@@ -48,8 +48,8 @@ public class WindowsSimpleDemo implements MsgHandler {
 		String qrPath = "D://itchat4j/login";
 		// Wechat wechat = new Wechat(msgHandler,
 		// "/home/itchat4j/demo/itchat4j/login");
-		Wechat wechat = new Wechat(msgHandler, qrPath);
-		wechat.start();
+		Wechat wechat = new Wechat(msgHandler);
+		wechat.start(null, qrPath);
 	}
 
 	@Override

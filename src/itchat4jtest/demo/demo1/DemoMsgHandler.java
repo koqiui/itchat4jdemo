@@ -17,7 +17,7 @@ import cn.open.itchat4j.tools.DownloadTools;
  * @version 1.0
  *
  */
-public class SimpleDemo implements MsgHandler {
+public class DemoMsgHandler implements MsgHandler {
 
 	@Override
 	public String textMsgHandle(BaseMsg msg) {

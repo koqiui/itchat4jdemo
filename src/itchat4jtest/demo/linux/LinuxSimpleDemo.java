@@ -65,8 +65,8 @@ public class LinuxSimpleDemo implements MsgHandler {
 
 	public static void main(String[] args) {
 		MsgHandler msgHandler = new LinuxSimpleDemo();
-		Wechat wechat = new Wechat(msgHandler, "/home/itchat4j/demo/itchat4j/login");
-		wechat.start();
+		Wechat wechat = new Wechat(msgHandler);
+		wechat.start(null, "/home/itchat4j/demo/itchat4j/login");
 	}
 
 	@Override
