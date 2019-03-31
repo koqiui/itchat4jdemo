@@ -14,7 +14,6 @@ import cn.open.itchat4j.Wechat;
 import cn.open.itchat4j.beans.BaseMsg;
 import cn.open.itchat4j.core.Core;
 import cn.open.itchat4j.core.MsgHandler;
-import cn.open.itchat4j.utils.MyHttpClient;
 
 /**
  * 图灵机器人示例
@@ -25,8 +24,7 @@ import cn.open.itchat4j.utils.MyHttpClient;
  *
  */
 public class TulingRobot implements MsgHandler {
-
-	MyHttpClient myHttpClient = Core.getInstance().getMyHttpClient();
+	Core core = Core.getInstance();
 	String apiKey = "597b34bea4ec4c85a775c469c84b6817"; // 这里是我申请的图灵机器人API接口，每天只能5000次调用，建议自己去申请一个，免费的:)
 	Logger logger = Logger.getLogger("TulingRobot");
 
@@ -41,7 +39,7 @@ public class TulingRobot implements MsgHandler {
 		paramMap.put("userid", "123456");
 		String paramStr = JSON.toJSONString(paramMap);
 		try {
-			HttpEntity entity = myHttpClient.doPost(url, paramStr);
+			HttpEntity entity = core.getMyHttpClient().doPost(url, paramStr);
 			result = EntityUtils.toString(entity, "UTF-8");
 			JSONObject obj = JSON.parseObject(result);
 			if (obj.getString("code").equals("100000")) {
