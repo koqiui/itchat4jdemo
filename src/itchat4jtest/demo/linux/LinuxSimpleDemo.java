@@ -2,10 +2,10 @@ package itchat4jtest.demo.linux;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Logger;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.util.EntityUtils;
+import org.apache.log4j.Logger;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
@@ -66,7 +66,7 @@ public class LinuxSimpleDemo implements MsgHandler {
 	public static void main(String[] args) {
 		MsgHandler msgHandler = new LinuxSimpleDemo();
 		Wechat wechat = new Wechat(msgHandler);
-		wechat.start(null, "/home/itchat4j/demo/itchat4j/login");
+		wechat.start("/home/itchat4j/demo/itchat4j/login");
 	}
 
 	@Override

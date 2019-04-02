@@ -49,7 +49,7 @@ public class WindowsSimpleDemo implements MsgHandler {
 		// Wechat wechat = new Wechat(msgHandler,
 		// "/home/itchat4j/demo/itchat4j/login");
 		Wechat wechat = new Wechat(msgHandler);
-		wechat.start(null, qrPath);
+		wechat.start(qrPath);
 	}
 
 	@Override
