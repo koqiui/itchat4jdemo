@@ -1,6 +1,6 @@
 # itchat4j -- 示例程序
 
-## 说明
+## 说明（主要参考 itchat4jtest.demo.demo1）
 
 此项目为[itchat4j](https://github.com/yaphone/itchat4j)的示例项目，可直接作为工程导入Eclipse，目前项目结构为：
 
