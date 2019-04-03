@@ -29,7 +29,7 @@ public class DemoMsgHandler implements MsgHandler {
 	public String picMsgHandle(BaseMsg msg) {
 		String fileName = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss").format(new Date()) + ".jpg"; // 这里使用收到图片的时间作为文件名
 		String picPath = "D://itchat4j/pic" + File.separator + fileName; // 保存图片的路径
-		DownloadTools.getDownloadFn(msg, MsgTypeCodeEnum.PIC.getCode(), picPath); // 调用此方法来保存图片
+		DownloadTools.getDownloadFile(msg, MsgTypeCodeEnum.PIC.getCode(), picPath); // 调用此方法来保存图片
 		return "图片保存成功";
 	}
 
@@ -37,7 +37,7 @@ public class DemoMsgHandler implements MsgHandler {
 	public String voiceMsgHandle(BaseMsg msg) {
 		String fileName = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss").format(new Date()) + ".mp3"; // 这里使用收到语音的时间作为文件名
 		String voicePath = "D://itchat4j/voice" + File.separator + fileName; // 保存语音的路径
-		DownloadTools.getDownloadFn(msg, MsgTypeCodeEnum.VOICE.getCode(), voicePath); // 调用此方法来保存语音
+		DownloadTools.getDownloadFile(msg, MsgTypeCodeEnum.VOICE.getCode(), voicePath); // 调用此方法来保存语音
 		return "声音保存成功";
 	}
 
@@ -45,7 +45,7 @@ public class DemoMsgHandler implements MsgHandler {
 	public String viedoMsgHandle(BaseMsg msg) {
 		String fileName = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss").format(new Date()) + ".mp4"; // 这里使用收到小视频的时间作为文件名
 		String viedoPath = "D://itchat4j/viedo" + File.separator + fileName;// 保存小视频的路径
-		DownloadTools.getDownloadFn(msg, MsgTypeCodeEnum.VIEDO.getCode(), viedoPath);// 调用此方法来保存小视频
+		DownloadTools.getDownloadFile(msg, MsgTypeCodeEnum.VIEDO.getCode(), viedoPath);// 调用此方法来保存小视频
 		return "视频保存成功";
 	}
 

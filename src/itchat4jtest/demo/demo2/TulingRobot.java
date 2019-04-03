@@ -48,7 +48,7 @@ public class TulingRobot implements MsgHandler {
 				result = "处理有误";
 			}
 		} catch (Exception e) {
-			logger.info(e.getMessage());
+			logger.error(e.getMessage());
 		}
 		return result;
 	}
